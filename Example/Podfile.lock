@@ -1,0 +1,16 @@
+PODS:
+  - MContextMenu (0.1.0)
+
+DEPENDENCIES:
+  - MContextMenu (from `../`)
+
+EXTERNAL SOURCES:
+  MContextMenu:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  MContextMenu: c2e4f6f16a00eb3ce48be40160d510aa240243af
+
+PODFILE CHECKSUM: 00cbaabc1c6f23e7711c813b44019a3a97595884
+
+COCOAPODS: 1.10.0

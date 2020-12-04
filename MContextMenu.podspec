@@ -21,16 +21,24 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/huy-luvapay/MContextMenu'
+  s.homepage         = 'https://github.com/huy-luvapay'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'huy-luvapay' => 'huy.van@epapersmart.com' }
   s.source           = { :git => 'https://github.com/huy-luvapay/MContextMenu.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '10.0'
 
-  s.source_files = 'MContextMenu/Classes/**/*'
+  s.swift_version = '5.0'
+
+  s.source_files = 'MContextMenu/Classes/**/*.{h,m,mm,swift}'
+  
+  s.resources = [
+    'MContextMenu/Classes/**/*.bundle',
+    'MContextMenu/Classes/**/*.xib',
+    "MContextMenu/Assets/**/*.lproj"
+  ]
   
   # s.resource_bundles = {
   #   'MContextMenu' => ['MContextMenu/Assets/*.png']
