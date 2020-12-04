@@ -1,6 +1,6 @@
 {
   "name": "MContextMenu",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "summary": "A short description of MContextMenu.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/huy-luvapay",
@@ -13,17 +13,12 @@
   },
   "source": {
     "git": "https://github.com/huy-luvapay/MContextMenu.git",
-    "tag": "0.1.0"
+    "tag": "0.1.1"
   },
   "platforms": {
     "ios": "10.0"
   },
   "swift_versions": "5.0",
-  "source_files": "MContextMenu/Classes/**/*.{h,m,mm,swift}",
-  "resources": [
-    "MContextMenu/Classes/**/*.bundle",
-    "MContextMenu/Classes/**/*.xib",
-    "MContextMenu/Assets/**/*.lproj"
-  ],
+  "source_files": "MContextMenu/Classes/**/*.{swift}",
   "swift_version": "5.0"
 }

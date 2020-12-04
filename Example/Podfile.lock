@@ -1,5 +1,5 @@
 PODS:
-  - MContextMenu (0.1.0)
+  - MContextMenu (0.1.1)
 
 DEPENDENCIES:
   - MContextMenu (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  MContextMenu: c2e4f6f16a00eb3ce48be40160d510aa240243af
+  MContextMenu: 7b91c3e05d2e9f88bd8454ad2029ddc6d9d647a6
 
 PODFILE CHECKSUM: 00cbaabc1c6f23e7711c813b44019a3a97595884
 

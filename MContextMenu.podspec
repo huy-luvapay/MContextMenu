@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MContextMenu'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'A short description of MContextMenu.'
 
 # This description is used to generate tags and improve search results.
@@ -32,13 +32,8 @@ TODO: Add long description of the pod here.
 
   s.swift_version = '5.0'
 
-  s.source_files = 'MContextMenu/Classes/**/*.{h,m,mm,swift}'
+  s.source_files = 'MContextMenu/Classes/**/*.{swift}'
   
-  s.resources = [
-    'MContextMenu/Classes/**/*.bundle',
-    'MContextMenu/Classes/**/*.xib',
-    "MContextMenu/Assets/**/*.lproj"
-  ]
   
   # s.resource_bundles = {
   #   'MContextMenu' => ['MContextMenu/Assets/*.png']
