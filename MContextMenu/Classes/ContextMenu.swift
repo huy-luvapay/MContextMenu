@@ -43,17 +43,20 @@ public struct ContextMenuAction {
     let image: UIImage?
     let tintColor: UIColor
     let tintColorDark: UIColor
+    let shouldAutoDismiss: Bool
     let action: ((ContextMenuAction) -> Void)?
 
     public init(title: String,
                 image: UIImage? = nil,
                 tintColor: UIColor? = nil,
                 tintColorDark: UIColor? = nil,
+                shouldAutoDismiss: Bool = true,
                 action: ((ContextMenuAction) -> Void)?) {
         self.title = title
         self.image = image
         self.tintColor = tintColor ?? .defaultLabelMenuActionColor
         self.tintColorDark = tintColorDark ?? .defaultLabelMenuActionColor
+        self.shouldAutoDismiss = shouldAutoDismiss
         self.action = action
     }
 }
@@ -159,7 +162,7 @@ extension UIView: ContextMenuSourceView {
                 x = originalFrame.origin.x
             }
             if originalFrame.minY < padding {
-                y = padding 
+                y = padding
             } else if originalFrame.maxY > UIScreen.main.bounds.height - padding {
                 y = UIScreen.main.bounds.height - originalFrame.height - padding
             } else {

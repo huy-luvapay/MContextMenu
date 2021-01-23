@@ -5,6 +5,7 @@
 //  Created by Paul Bancarel on 28/11/2020.
 //
 
+
 class ContextMenuBlurView: IntensityVisualEffectView {
     
     class var intensity: CGFloat { 1.0 }

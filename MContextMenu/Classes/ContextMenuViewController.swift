@@ -161,7 +161,7 @@ class ContextMenuViewController: UIViewController {
 
     private func showSourceView(completion: @escaping () -> Void) {
         UIView.animate(
-            withDuration: 0.2,
+            withDuration: 0.1,
             animations: {
                 self.overlayView.alpha = 1
                 self.blurView.alpha = 1
@@ -169,7 +169,7 @@ class ContextMenuViewController: UIViewController {
             },
             completion: { _ in
                 UIView.animate(
-                    withDuration: 0.2,
+                    withDuration: 0.1,
                     animations: {
                         self.snapshotImageView.transform = self.contextMenu.sourceViewSecondTransform
                     },
@@ -179,10 +179,10 @@ class ContextMenuViewController: UIViewController {
 
     private func showContextMenu() {
         UIView.animate(
-            withDuration: 0.5,
+            withDuration: 0.1,
             delay: 0.0,
             usingSpringWithDamping: 0.7,
-            initialSpringVelocity: 5,
+            initialSpringVelocity: 3,
             options: .curveLinear,
             animations: {
                 self.contextMenuView.alpha = 1
@@ -197,16 +197,16 @@ class ContextMenuViewController: UIViewController {
             },
             completion: { _ in
                 UIView.animate(
-                    withDuration: 0.2,
+                    withDuration: 0.1,
                     animations: {
                         self.contextMenuView.transform = self.contextMenu.optionsViewThirdTransform
                 })
             })
     }
 
-    private func fadeOutAndClose() {
+    private func fadeOutAndClose(completion:(() -> Void)? = nil) {
         UIView.animate(
-            withDuration: 0.3,
+            withDuration: 0.2,
             animations: {
                 self.blurView.alpha = 0
                 self.contextMenuView.alpha = 0
@@ -215,11 +215,16 @@ class ContextMenuViewController: UIViewController {
             },
             completion: { _ in
                 self.delegate?.contextMenuViewControllerDidDismiss(self)
+                completion?()
             })
     }
 
     @objc private func handleDismissGestureRecognizer() {
         fadeOutAndClose()
+    }
+    
+    @objc public func close(completion:(() -> Void)? = nil) {
+        fadeOutAndClose(completion: completion)
     }
 }
 
@@ -245,7 +250,12 @@ extension ContextMenuViewController: UITableViewDataSource, UITableViewDelegate 
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let action = contextMenu.actions[indexPath.row]
-        action.action?(action)
-        fadeOutAndClose()
+        if(action.shouldAutoDismiss) {
+            fadeOutAndClose {
+                action.action?(action)
+            }
+        } else {
+            action.action?(action)
+        }
     }
 }
